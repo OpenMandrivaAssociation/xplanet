@@ -11,6 +11,7 @@ Source0:	http://prdownloads.sourceforge.net/xplanet/%{name}-%{version}.tar.bz2
 URL:		http://xplanet.sourceforge.net/
 License:	GPL
 Group:		Toys
+BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 BuildRequires: png-devel pango-devel jpeg-devel tiff-devel X11-devel  
 
 %description
