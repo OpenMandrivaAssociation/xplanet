@@ -1,18 +1,19 @@
 %define	name	xplanet 
-%define version 1.2.0
-%define release %mkrel 5
+%define version 1.2.1
+%define release %mkrel 1
 %define	_prefix	/usr/X11R6
 
 Summary:	OpenGL based planet renderer
 Name:		%{name}
 Version:	%{version}
 Release:	%{release}
-Source0:	http://prdownloads.sourceforge.net/xplanet/%{name}-%{version}.tar.bz2
+Source0:	http://freefr.dl.sourceforge.net/sourceforge/xplanet/%{name}-%{version}.tar.gz
+Patch0:		xplanet-1.2.1-fix-gcc44.patch
 URL:		http://xplanet.sourceforge.net/
-License:	GPL
+License:	GPLv2+
 Group:		Toys
 BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
-BuildRequires: png-devel pango-devel jpeg-devel tiff-devel X11-devel  
+BuildRequires:	png-devel pango-devel jpeg-devel tiff-devel X11-devel  
 
 %description
 Xplanet is similar to Xearth, where an image of the earth is rendered into
@@ -25,6 +26,7 @@ night and day maps, as well as a separate cloud map.
 
 %prep
 %setup -q
+%patch0 -p0
 
 %build
 # the macro break X output
@@ -37,14 +39,14 @@ rm -rf $RPM_BUILD_ROOT
 
 #mkdir -p $RPM_BUILD_ROOT/%_prefix/man/man1
 #mv $RPM_BUILD_ROOT/%_prefix/man/*.1 $RPM_BUILD_ROOT/%_prefix/man/man1/
-bzip2 $RPM_BUILD_ROOT/%_mandir/man1/*
+#bzip2 $RPM_BUILD_ROOT/%_mandir/man1/*
 
 %clean
 rm -rf $RPM_BUILD_ROOT
 
 %files
-%defattr(-,root,root)
+%defattr(-,root,root,-)
 %doc COPYING ChangeLog INSTALL
-%{_mandir}/man1/*
+%{_mandir}/man1/%{name}.1.*
 %{_bindir}/*
 %{_datadir}/*
