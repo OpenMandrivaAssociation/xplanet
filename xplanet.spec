@@ -1,7 +1,6 @@
 %define	name	xplanet 
 %define version 1.2.1
 %define release %mkrel 1
-%define	_prefix	/usr/X11R6
 
 Summary:	OpenGL based planet renderer
 Name:		%{name}
