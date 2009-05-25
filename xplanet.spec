@@ -29,7 +29,7 @@ night and day maps, as well as a separate cloud map.
 
 %build
 # the macro break X output
-./configure --with-xscreensaver --with-x --prefix=%_prefix
+%configure2_5x --with-xscreensaver --with-x
 %make
 
 %install
