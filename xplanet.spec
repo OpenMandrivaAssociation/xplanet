@@ -1,11 +1,7 @@
-%define	name	xplanet 
-%define version 1.2.1
-%define release %mkrel 1
-
+Name:		xplanet
+Version:	1.2.1
+Release:	%mkrel 1
 Summary:	OpenGL based planet renderer
-Name:		%{name}
-Version:	%{version}
-Release:	%{release}
 Source0:	http://freefr.dl.sourceforge.net/sourceforge/xplanet/%{name}-%{version}.tar.gz
 Patch0:		xplanet-1.2.1-fix-gcc44.patch
 URL:		http://xplanet.sourceforge.net/
