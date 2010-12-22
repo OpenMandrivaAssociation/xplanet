@@ -8,7 +8,14 @@ URL:		http://xplanet.sourceforge.net/
 License:	GPLv2+
 Group:		Toys
 BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
-BuildRequires:	png-devel pango-devel jpeg-devel tiff-devel X11-devel  
+BuildRequires:	libx11-devel
+BuildRequires:	libxscrnsaver-devel
+BuildRequires:	freetype2-devel
+BuildRequires:	ungif-devel
+BuildRequires:	pango-devel
+BuildRequires:	jpeg-devel
+BuildRequires:	png-devel
+BuildRequires:	tiff-devel
 
 %description
 Xplanet is similar to Xearth, where an image of the earth is rendered into
