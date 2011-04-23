@@ -1,9 +1,8 @@
 Name:		xplanet
-Version:	1.2.1
-Release:	%mkrel 5
+Version:	1.2.2
+Release:	%mkrel 1
 Summary:	OpenGL based planet renderer
 Source0:	http://freefr.dl.sourceforge.net/sourceforge/xplanet/%{name}-%{version}.tar.gz
-Patch0:		xplanet-1.2.1-fix-gcc44.patch
 URL:		http://xplanet.sourceforge.net/
 License:	GPLv2+
 Group:		Toys
@@ -28,20 +27,14 @@ night and day maps, as well as a separate cloud map.
 
 %prep
 %setup -q
-%patch0 -p0
 
 %build
-# the macro break X output
 %configure2_5x --with-xscreensaver --with-x
 %make
 
 %install
 rm -rf $RPM_BUILD_ROOT
-%makeinstall
-
-#mkdir -p $RPM_BUILD_ROOT/%_prefix/man/man1
-#mv $RPM_BUILD_ROOT/%_prefix/man/*.1 $RPM_BUILD_ROOT/%_prefix/man/man1/
-#bzip2 $RPM_BUILD_ROOT/%_mandir/man1/*
+%makeinstall_std
 
 %clean
 rm -rf $RPM_BUILD_ROOT
