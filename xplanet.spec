@@ -1,6 +1,6 @@
 Name:		xplanet
 Version:	1.2.2
-Release:	%mkrel 2
+Release:	%mkrel 3
 Summary:	OpenGL based planet renderer
 Source0:	http://freefr.dl.sourceforge.net/sourceforge/xplanet/%{name}-%{version}.tar.gz
 URL:		http://xplanet.sourceforge.net/
