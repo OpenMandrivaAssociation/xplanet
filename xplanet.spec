@@ -1,19 +1,19 @@
 Name:		xplanet
 Version:	1.3.0
-Release:	%mkrel 1
+Release:	2
 Summary:	OpenGL based planet renderer
 Source0:	http://freefr.dl.sourceforge.net/sourceforge/xplanet/%{name}-%{version}.tar.gz
 URL:		http://xplanet.sourceforge.net/
 License:	GPLv2+
 Group:		Toys
-BuildRequires:	png-devel
 BuildRequires:	jpeg-devel
 BuildRequires:	tiff-devel
 BuildRequires:	ungif-devel
-BuildRequires:	libx11-devel
-BuildRequires:	libxscrnsaver-devel
-BuildRequires:	freetype2-devel
-BuildRequires:	pango-devel
+BuildRequires:	pkgconfig(freetype2)
+BuildRequires:	pkgconfig(libpng)
+BuildRequires:	pkgconfig(pango)
+BuildRequires:	pkgconfig(x11)
+BuildRequires:	pkgconfig(xscrnsaver)
 
 %description
 Xplanet is similar to Xearth, where an image of the earth is rendered into
@@ -33,41 +33,11 @@ night and day maps, as well as a separate cloud map.
 %make
 
 %install
-rm -rf %{buildroot}
 %makeinstall_std
-
 
 %files
 %doc COPYING ChangeLog
 %{_mandir}/man1/%{name}.1*
 %{_bindir}/*
 %{_datadir}/%{name}
-
-
-%changelog
-
-* Tue Jun 12 2012 eatdirt <eatdirt> 1.3.0-1.mga3
-+ Revision: 260090
-- Upgrade version to 1.3.0
-
-* Sun Mar 04 2012 luigiwalser <luigiwalser> 1.2.2-4.mga2
-+ Revision: 217657
-- rebuild for netpbm
-
-* Fri Dec 23 2011 mikala <mikala> 1.2.2-3.mga2
-+ Revision: 186830
-- Rebuild for new libtiff
-- remove %%defattr() & %%clean section
-- use %%{buildroot} macro instead of $RPM_BUILD_ROOT
-
-* Sun Sep 18 2011 fwang <fwang> 1.2.2-2.mga2
-+ Revision: 144965
-- rebuild for new libpng
-- new version 1.2.
-
-* Sat Jan 22 2011 ahmad <ahmad> 1.2.1-6.mga1
-+ Revision: 33307
-- drop BR X11-devel
-- add BR libxscrnsaver-devel libice-devel libnetpbm-devel
-- imported package xplanet
 
