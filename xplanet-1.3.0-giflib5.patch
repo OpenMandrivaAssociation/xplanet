@@ -1,6 +1,18 @@
 --- src/libimage/gif.c.orig	2013-04-02 17:19:41.072231979 +0100
-+++ src/libimage/gif.c	2013-04-02 17:24:26.838215283 +0100
-@@ -198,7 +198,11 @@
++++ src/libimage/gif.c	2013-04-02 17:32:44.491186206 +0100
+@@ -42,7 +42,11 @@
+     int color_index;
+     unsigned char *ptr = NULL;
+ 
++#if GIFLIB_MAJOR >= 5
++    infile = DGifOpenFileName(filename,NULL);
++#else
+     infile = DGifOpenFileName(filename);
++#endif
+ 
+     if (infile == NULL)
+     {
+@@ -198,7 +202,11 @@
      free(green);
      free(blue);
  
@@ -13,7 +25,7 @@
      if (outfile == NULL)
      {
          PrintGifError();
-@@ -212,7 +216,7 @@
+@@ -212,7 +220,7 @@
          return(0);
      }
  
