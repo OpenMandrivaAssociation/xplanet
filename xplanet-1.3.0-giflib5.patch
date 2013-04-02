@@ -1,0 +1,24 @@
+--- src/libimage/gif.c.orig	2013-04-02 17:19:41.072231979 +0100
++++ src/libimage/gif.c	2013-04-02 17:24:26.838215283 +0100
+@@ -198,7 +198,11 @@
+     free(green);
+     free(blue);
+ 
+-    outfile = EGifOpenFileName((char *) filename, FALSE);
++#if GIFLIB_MAJOR >= 5 
++    outfile = EGifOpenFileName((char *) filename, 0, NULL);
++#else
++    outfile = EGifOpenFileName((char *) filename, 0);
++#endif
+     if (outfile == NULL)
+     {
+         PrintGifError();
+@@ -212,7 +216,7 @@
+         return(0);
+     }
+ 
+-    if (EGifPutImageDesc(outfile, 0, 0, width, height, FALSE, NULL)
++    if (EGifPutImageDesc(outfile, 0, 0, width, height, 0, NULL)
+         == GIF_ERROR)
+     {
+         PrintGifError();
