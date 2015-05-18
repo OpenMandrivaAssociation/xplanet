@@ -1,6 +1,6 @@
 Name:		xplanet
 Version:	1.3.0
-Release:	10
+Release:	11
 Summary:	OpenGL based planet renderer
 Source0:	http://freefr.dl.sourceforge.net/sourceforge/xplanet/%{name}-%{version}.tar.gz
 Patch1:		xplanet-1.3.0-giflib5.patch
@@ -31,7 +31,7 @@ night and day maps, as well as a separate cloud map.
 
 %build
 # the macro break X output
-%configure2_5x --with-xscreensaver --with-x
+%configure --with-xscreensaver --with-x
 %make
 
 %install
