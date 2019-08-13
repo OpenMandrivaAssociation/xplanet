@@ -33,6 +33,8 @@ night and day maps, as well as a separate cloud map.
 %autopatch -p1
 
 %build
+export CC=gcc
+export CXX=g++
 autoreconf -vfi
 
 %configure2_5x --with-xscreensaver --with-x
