@@ -1,0 +1,35 @@
+--- xplanet-1.3.1/src/libimage/gif.c.orig	2016-04-22 07:56:34.933575172 +0000
++++ xplanet-1.3.1/src/libimage/gif.c	2016-04-22 08:05:05.157035770 +0000
+@@ -178,8 +178,8 @@
+ 	    *BufferP++ = ColorMapEntry->Blue;
+ 	}
+     }
+-    
+-    if (DGifCloseFile(GifFile) == GIF_ERROR) {
++    int errCode = 0;
++    if (DGifCloseFile(GifFile,&errCode) == GIF_ERROR) {
+ 	return(0);
+     }
+ 
+@@ -492,8 +492,9 @@
+ ******************************************************************************/
+ static void QuitGifError(GifFileType *GifFile)
+ {
++    int errCode;
+     fprintf(stderr, "Error writing GIF file\n");
+-    if (GifFile != NULL) EGifCloseFile(GifFile);
++    if (GifFile != NULL) EGifCloseFile(GifFile,&errCode);
+ }
+ 
+ int 
+@@ -588,8 +589,8 @@
+ 	}
+ 	Ptr += width;
+     }
+-
+-    if (EGifCloseFile(GifFile) == GIF_ERROR)
++    int errCode;
++    if (EGifCloseFile(GifFile,&errCode) == GIF_ERROR)
+ 
+     {
+ 	QuitGifError(GifFile);
