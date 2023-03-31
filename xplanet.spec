@@ -1,6 +1,6 @@
 Name:		xplanet
 Version:	1.3.1
-Release:	1
+Release:	2
 Summary:	OpenGL based planet renderer
 Source0:	http://freefr.dl.sourceforge.net/sourceforge/xplanet/%{name}-%{version}.tar.gz
 #fix new api calls to libgif5
