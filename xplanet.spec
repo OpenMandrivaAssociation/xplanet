@@ -7,7 +7,7 @@ Source0:	http://freefr.dl.sourceforge.net/sourceforge/xplanet/%{name}-%{version}
 Patch0:         xplanet-1.3.1-giflib5.patch
 #Fix compilation with GCC 6
 Patch1:		xplanet-1.3.1-gcc6.patch
-URL:		http://xplanet.sourceforge.net/
+URL:		https://xplanet.sourceforge.net/
 License:	GPLv2+
 Group:		Toys
 BuildRequires:	jpeg-devel
