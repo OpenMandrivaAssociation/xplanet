@@ -10,6 +10,11 @@ Patch1:		xplanet-1.3.1-gcc6.patch
 URL:		https://xplanet.sourceforge.net/
 License:	GPLv2+
 Group:		Toys
+BuildRequires:	autoconf
+BuildRequires:	automake
+BuildRequires:	libtool-base
+BuildRequires:	slibtool
+BuildRequires:	make
 BuildRequires:	jpeg-devel
 BuildRequires:	tiff-devel
 BuildRequires:	ungif-devel
